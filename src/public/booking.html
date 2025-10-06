@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book a reliable and personal ride with RenToGo." />
+  <title>RenToGo | Book a Ride</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>RenToGo</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="booking.html" class="active">Book a Ride</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="booking-section">
+    <div class="container">
+      <h2>Book Your Ride</h2>
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Pickup Date *</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Pickup Time *</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pickup">Pickup Location *</label>
+          <input type="text" id="pickup" name="pickup" required />
+        </div>
+
+        <div class="form-group">
+          <label for="destination">Drop-off Location</label>
+          <input type="text" id="destination" name="destination" />
+        </div>
+
+        <div class="form-group">
+          <label for="preferences">Preferences (optional)</label>
+          <textarea id="preferences" name="preferences" placeholder="AC, music, child seat, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 RenToGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
