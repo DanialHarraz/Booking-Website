@@ -1,28 +1,24 @@
-const db = require("../db");
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-const createBooking = async (data) => {
-  const {
-    fullName,
-    phone,
-    email,
-    date,
-    time,
-    pickup,
-    destination,
-    preferences,
-  } = data;
 
-  const query = `
-    INSERT INTO bookings (full_name, phone, email, date, time, pickup, destination, preferences)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-    RETURNING *;
-  `;
-
-  const values = [fullName, phone, email, date, time, pickup, destination, preferences];
-  const result = await db.query(query, values);
-  return result.rows[0];
-};
-
-module.exports = {
-  createBooking,
+module.exports.createBooking = async (data) => {
+    try {
+        return await prisma.booking.create({
+            data: {
+              
+                fullName: data.fullname,
+                phone: data.phone,
+                email: data.email,
+                date: data.date,
+                time: data.time,
+                pickup: data.pickup,
+                destination: data.destination,
+                preferences: data.preferences,
+            },
+        });
+    } catch (error) {
+        console.error('Error creating progress tracker:', error);
+        throw error;
+    }
 };

@@ -1,6 +1,6 @@
 const Booking = require("../models/bookingModel");
 
-exports.createBooking = async (req, res) => {
+module.exports.createBooking = async (req, res) => {
   try {
     const newBooking = await Booking.createBooking(req.body);
     res.status(201).json({
