@@ -7,7 +7,7 @@ module.exports.createBooking = async (data) => {
         return await prisma.booking.create({
             data: {
               
-                fullName: data.fullname,
+                fullName: data.fullName,
                 phone: data.phone,
                 email: data.email,
                 date: data.date,

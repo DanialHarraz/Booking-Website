@@ -6,6 +6,7 @@ const dotenv = require("dotenv").config();
 const prisma = require("./src/models/prismaClient");
 
 const bookingRoutes = require("./src/routers/bookingRoutes");
+const adminRoutes = require("./src/routers/adminRoutes");
 
 const app = express();
 
@@ -35,7 +36,7 @@ app.get("/", (req, res) => {
 // API Routes
 // ====================
 app.use("/api/bookings", bookingRoutes);
-
+app.use("/api/admin", adminRoutes);
 // ====================
 // 404 Handler
 // ====================

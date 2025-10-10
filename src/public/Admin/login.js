@@ -1,19 +1,43 @@
-document.getElementById("adminLoginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("adminLoginForm"); 
 
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const errorMsg = document.getElementById("errorMsg");
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-  // Temporary hardcoded admin account (replace later with backend)
-  const ADMIN_USER = "admin";
-  const ADMIN_PASS = "12345";
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-  if (username === ADMIN_USER && password === ADMIN_PASS) {
-    // Store login info in localStorage
-    localStorage.setItem("isAdminLoggedIn", "true");
-    window.location.href = "admin-dashboard.html";
-  } else {
-    errorMsg.textContent = "Invalid username or password.";
-  }
+    if (!username || !password) {
+      window.alert("Please fill in both username and password.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        window.alert(data.message || "Invalid username or password.");
+        return;
+      }
+
+      // Save admin session
+      localStorage.setItem("isAdminLoggedIn", "true");
+      localStorage.setItem("userData", JSON.stringify(data.data || {}));
+      localStorage.setItem("token", data.token || "");
+
+      window.location.href = "/Admin/admin-dashboard.html";
+
+    } catch (error) {
+      console.error("Login error:", error);
+      window.alert("Something went wrong. Please try again later.");
+    }
+  });
 });
