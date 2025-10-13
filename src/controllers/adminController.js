@@ -26,7 +26,7 @@ module.exports.checkUser = async (req, res, next) => {
 
     const user = data[0];
 
-    // ✅ Check if role is admin
+    //  Check if role is admin
     if (user.role !== "admin") {
       return res.status(403).json({ message: "Access denied — not an admin account" });
     }

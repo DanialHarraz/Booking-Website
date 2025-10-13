@@ -2,25 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>RenToGo | Admin Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-  <div class="dashboard">
-    <h2>Welcome, Admin</h2>
-    <button id="logoutBtn" class="btn">Logout</button>
+  <header class="admin-header">
+    <h1>RenToGo Admin Dashboard</h1>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
 
-    <div id="bookingsContainer">
-      <p>All bookings will appear here once connected to backend.</p>
-    </div>
-  </div>
+  <main class="admin-main">
+    <section class="filter-section">
+      <h2>All Bookings</h2>
+      <select id="filterStatus">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    </section>
 
-  <script src="js/auth.js"></script>
-  <script>
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("isAdminLoggedIn");
-      window.location.href = "admin-login.html";
-    });
-  </script>
+    <section class="table-section">
+      <table id="bookingsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Booking Type</th>
+            <th>Date</th>
+            <th>Pickup</th>
+            <th>Destination</th>
+            <th>Passengers</th>
+            <th>Payment</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsBody">
+          <tr><td colspan="11" class="loading">Loading bookings...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>

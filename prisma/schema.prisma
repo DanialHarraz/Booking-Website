@@ -22,15 +22,27 @@ model User {
 }
 
 model Booking {
-  id          Int      @id @default(autoincrement())
-  fullName    String
-  phone       String
-  email       String?
-  date        String
-  time        String
-  pickup      String
-  destination String?
-  preferences String?
-  status      String   @default("pending")
-  createdAt   DateTime @default(now())
+  id                   Int       @id @default(autoincrement())
+  fullName             String
+  phone                String
+  email                String?
+  bookingType          String
+  date                 String
+  time                 String
+  pickup               String
+  destination          String?
+  duration             String?
+  returnDate           String?
+  returnTime           String?
+  additionalStops      Boolean   @default(false)
+  additionalStopsInfo  String?
+  passengers           Int
+  luggage              String?
+  depositAcknowledged  Boolean
+  cancellationPolicy   Boolean
+  paymentScreenshot    String?   // store file path or URL
+  additionalNotes      String?
+  status               String    @default("pending")
+  createdAt            DateTime  @default(now())
 }
+

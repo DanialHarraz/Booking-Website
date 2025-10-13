@@ -26,48 +26,121 @@
     <div class="container">
       <h2>Book Your Ride</h2>
       <form id="bookingForm">
-        <div class="form-group">
-          <label for="fullName">Full Name *</label>
-          <input type="text" id="fullName" name="fullName" required />
-        </div>
+  <!-- Section 1: Customer Info -->
+  <div class="form-group">
+    <label for="fullName">Full Name *</label>
+    <input type="text" id="fullName" name="fullName" required />
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" name="phone" required />
+  </div>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" />
+  </div>
 
-        <div class="form-group">
-          <label for="phone">Phone Number *</label>
-          <input type="tel" id="phone" name="phone" required />
-        </div>
+  <!-- Section 2: Trip Type -->
+  <div class="form-group">
+    <label for="bookingType">Type of Booking *</label>
+    <select id="bookingType" name="bookingType" required>
+      <option value="">Select booking type</option>
+      <option value="one-way">One-Way Trip</option>
+      <option value="two-way">Two-Way Trip</option>
+      <option value="hourly">Hourly Booking</option>
+    </select>
+  </div>
 
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" />
-        </div>
+  <!-- One-Way & Two-Way Fields -->
+  <div id="oneTwoWayFields" style="display:none;">
+    <div class="form-group">
+      <label for="date">Date of Trip *</label>
+      <input type="date" id="date" name="date" />
+    </div>
+    <div class="form-group">
+      <label for="time">Pick-Up Time *</label>
+      <input type="time" id="time" name="time" />
+    </div>
+    <div class="form-group">
+      <label for="pickup">Pick-Up Location *</label>
+      <input type="text" id="pickup" name="pickup" />
+    </div>
+    <div class="form-group">
+      <label for="destination">Drop-Off Location *</label>
+      <input type="text" id="destination" name="destination" />
+    </div>
+    <div class="form-group">
+      <label for="additionalStops">Additional Drop-Off Points? (Additional $10 each)</label>
+      <textarea id="additionalStops" name="additionalStops"></textarea>
+    </div>
+  </div>
 
-        <div class="form-group">
-          <label for="date">Pickup Date *</label>
-          <input type="date" id="date" name="date" required />
-        </div>
+  <!-- Two-Way Only Fields -->
+  <div id="twoWayReturnFields" style="display:none;">
+    <div class="form-group">
+      <label for="returnDate">Return Trip Date *</label>
+      <input type="date" id="returnDate" name="returnDate" />
+    </div>
+    <div class="form-group">
+      <label for="returnTime">Return Trip Time *</label>
+      <input type="time" id="returnTime" name="returnTime" />
+    </div>
+  </div>
 
-        <div class="form-group">
-          <label for="time">Pickup Time *</label>
-          <input type="time" id="time" name="time" required />
-        </div>
+  <!-- Hourly Booking Fields -->
+  <div id="hourlyFields" style="display:none;">
+    <div class="form-group">
+      <label for="hourlyDate">Date of Trip *</label>
+      <input type="date" id="hourlyDate" name="hourlyDate" />
+    </div>
+    <div class="form-group">
+      <label for="hourlyTime">Pick-Up Time *</label>
+      <input type="time" id="hourlyTime" name="hourlyTime" />
+    </div>
+    <div class="form-group">
+      <label for="hourlyPickup">Pick-Up Location *</label>
+      <input type="text" id="hourlyPickup" name="hourlyPickup" />
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration of Booking (hours) *</label>
+      <input type="number" id="duration" name="duration" min="3" />
+    </div>
+  </div>
 
-        <div class="form-group">
-          <label for="pickup">Pickup Location *</label>
-          <input type="text" id="pickup" name="pickup" required />
-        </div>
+  <!-- Final Section -->
+  <div id="finalSection" style="display:none;">
+    <div class="form-group">
+      <label for="passengers">Number of Passengers *</label>
+      <input type="number" id="passengers" name="passengers" max="12" required />
+    </div>
 
-        <div class="form-group">
-          <label for="destination">Drop-off Location</label>
-          <input type="text" id="destination" name="destination" />
-        </div>
+    <!-- <div class="form-group">
+      <label for="paymentMethod">Payment Method *</label>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="paynow">PayNow</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+    </div> -->
 
-        <div class="form-group">
-          <label for="preferences">Preferences (optional)</label>
-          <textarea id="preferences" name="preferences" placeholder="AC, music, child seat, etc."></textarea>
-        </div>
+    <div class="form-group">
+      <input type="checkbox" id="depositAcknowledged" name="depositAcknowledged" required />
+      <label for="depositAcknowledged">I understand a $20 deposit to 91080548 is required to confirm my booking.</label>
+    </div>
 
-        <button type="submit" class="btn">Submit Booking</button>
-      </form>
+    <div class="form-group">
+      <input type="checkbox" id="cancellationPolicy" name="cancellationPolicy" required />
+      <label for="cancellationPolicy">I understand cancellation less than 3–4 hours before the trip may result in deposit forfeiture.</label>
+    </div>
+
+    <div class="form-group">
+      <label for="additionalNotes">Additional Notes / Requests</label>
+      <textarea id="additionalNotes" name="additionalNotes"></textarea>
+    </div>
+
+    <button type="submit" class="btn">Submit Booking</button>
+  </div>
+</form>
+
     </div>
   </section>
 
