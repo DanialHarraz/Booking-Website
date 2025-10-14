@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td>${b.phone}</td>
           <td>${b.bookingType}</td>
           <td>${b.date || "-"}</td>
+          <td>${b.time || "-"}</td>
           <td>${b.pickup || "-"}</td>
           <td>${b.destination || "-"}</td>
           <td>${b.passengers || "-"}</td>
