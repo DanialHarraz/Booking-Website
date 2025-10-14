@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     bookingsBody.innerHTML = `<tr><td colspan="11" class="loading">Loading bookings...</td></tr>`;
 
     try {
-      const res = await fetch("http://localhost:5000/api/bookings/get");
+      const res = await fetch("/bookings/get");
       const data = await res.json();
 
       let bookings = data.data || data; // ✅ fixed key name
