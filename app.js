@@ -32,8 +32,8 @@ app.get("/view-booking.html", (req, res) => {
 });
 
 // API Routes
-app.use("/bookings", bookingRoutes);
-app.use("/admin", adminRoutes);
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/admin", adminRoutes);
 
 // 404 handler
 app.use((req, res) => {
