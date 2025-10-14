@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("userData", JSON.stringify(data.data || {}));
       localStorage.setItem("token", data.token || "");
 
-      window.location.href = "/Admin/admin-dashboard.html";
+      window.location.href = "/admin-dashboard.html";
 
     } catch (error) {
       console.error("Login error:", error);
